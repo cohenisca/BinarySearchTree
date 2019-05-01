@@ -11,11 +11,13 @@ namespace BinarySearchTree
         public int key { get; set; }
         public Node left { get; set; }
         public Node right { get; set; }
-        public Node(int k,Node l=null,Node r=null)
+        public Node parent { get; set; }
+        public Node(int k,Node l=null,Node r=null,Node p=null)
         {
             key = k;
             left = l;
             right = r;
+            parent = p;
         }
     }
 }

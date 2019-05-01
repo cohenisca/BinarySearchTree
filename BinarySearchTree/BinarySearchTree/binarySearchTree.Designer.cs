@@ -40,8 +40,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,6 +58,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "מחק";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -171,6 +172,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "מחיקת איבר";
             // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(26, 20);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(41, 20);
+            this.numericUpDown3.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -179,13 +187,6 @@
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "ערך מספרי:";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(26, 20);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown3.TabIndex = 2;
             // 
             // binarySearchTree
             // 

@@ -61,6 +61,7 @@ namespace BinarySearchTree
             else
             {
                 Node parent = find_parent(key);
+                newNode.parent = parent;
                 if (key > parent.key)
                     parent.right = newNode;
                 else if (key < parent.key)
@@ -88,44 +89,76 @@ namespace BinarySearchTree
             if (node != null)
             {
                 if (node.right == null)
-                    node = node.left;
+                {
+                    if (node.parent.left.key == node.key)
+                        node.parent.left = node.left;
+                    else
+                        node.parent.right = node.left;
+                }
+                else if (node.left == null)
+                {
+                    if (node.parent.left.key == node.key)
+                        node.parent.left = node.right;
+                    else
+                        node.parent.right = node.right;
+                }
+                else//he has 2 sons
+                {
+                    //find the successor
+                    Node succ = node.right;
+                    while (succ.left != null)
+                        succ = succ.left;
+                    node.key = succ.key;//replace the value between the successor and node
+                    //delete the successoe
+                    if (succ.right == null)
+                    {
+                        if (succ.parent.left.key == succ.key)
+                            succ.parent.left = succ.left;
+                        else
+                            succ.parent.right = succ.left;
+                    }
+
+
+                }
+                MessageBox.Show("the value deleted");
+
             }
+            else
+                MessageBox.Show("the value not found");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            //numericUpDown1.Visible = true;
-            //label1.Visible = true;
             Add(int.Parse(numericUpDown1.Value.ToString()));
-            //numericUpDown1.Visible = false;
-            //label1.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             PrintTree(root);
+            //BTreePrinter.Print(root);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            //numericUpDown2.Visible = true;
-            //label2.Visible = true;
             Node z=find(int.Parse(numericUpDown2.Value.ToString()));
             listBox1.Items.Clear();
             if (z != null)
                 listBox1.Items.Add("the value found :) ");
             else
                 listBox1.Items.Add("the value not found :( ");
-            //numericUpDown2.Visible = false;
-            //label2.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Delete(int.Parse(numericUpDown3.Value.ToString()));
         }
     }
 }
